@@ -1,14 +1,14 @@
 import React from "react";
 
-function StockItem({stockData}){
+function StockItem({stockData, setSelectedStock}){
 
 
     return <tr>
-    <th>{stockData.label}</th>
-    <th>{stockData.name}</th>
-    <th>{stockData.opening_price}</th>
-    <th>{stockData.price}</th>
-    <th>{stockData.change}</th>
+    <td onClick={()=> setSelectedStock(stockData)}>{stockData.label}</td>
+    <td onClick={()=> setSelectedStock(stockData)}>{stockData.name}</td>
+    {/* <th>{stockData.opening_price}</th> */}
+    <td>{stockData.price}</td>
+    {/* <th>{stockData.change}</th> */}
 </tr>
 }
 

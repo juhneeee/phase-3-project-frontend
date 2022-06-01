@@ -18,7 +18,7 @@ function LoginForm({setLoggedInUser}){
     function handleSubmit(e){
         e.preventDefault()
         const user = users.find(u => u.name == formData.name && u.passcode == formData.password)
-        user? setLoggedInUser(user.id) : console.log("That account dos not exist")
+        user ? setLoggedInUser(user) : console.log("That account does not exist")
 
     }
     
