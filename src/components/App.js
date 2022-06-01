@@ -23,26 +23,35 @@ function App() {
   }
 
   function updateTransactions(){
-    fetch(`http://localhost:9292/transactions`)
+    fetch(`http://localhost:9292/users/${loggedInUser.id}/transactions`)
     .then((r) => r.json())
-    .then((d) => d.filter(t=> t.user_id == loggedInUser.id))
     .then(setTransactions)
   }
 
   function updateUser(){
     fetch(`http://localhost:9292/users/${loggedInUser.id}`)
     .then((r) => r.json())
-    .then(setTransactions)
+    .then(setLoggedInUser)
   }
 
+  function updatePrices(){
+    fetch(`http://localhost:9292/update/prices`)
+    .then(updateStocks)
+    .then(updateUser)
+  }
+
+  function fakesGamble(){
+    fetch(`http://localhost:9292/fakes/gamble`)
+    
+  }
 
   return (
     <div className="App">
 
       <div className = "left-div">
       <StockList stocks={stocks} setSelectedStock={setSelectedStock} updateStocks={updateStocks}/>
-      {loggedInUser && <MyTransactions loggedInUser={loggedInUser} transactions={transactions} updateTransactions={updateTransactions} setSelectedStock={setSelectedStock}/>}
       {loggedInUser && <MyPorfolio loggedInUser={loggedInUser}/>}
+      {loggedInUser && <MyTransactions loggedInUser={loggedInUser} transactions={transactions} updateTransactions={updateTransactions} setSelectedStock={setSelectedStock}/>}
       </div>
       
 
@@ -50,6 +59,9 @@ function App() {
       {loggedInUser 
       ? <button onClick={() => setLoggedInUser("")}> logout </button>
       : <LoginForm setLoggedInUser={setLoggedInUser}/>}
+
+        <button onClick={updatePrices}>Update Prices</button>
+
         {selectedStock && 
         <StockDetail selectedStock={selectedStock} loggedInUser={loggedInUser} updateTransactions={updateTransactions} updateUser={updateUser}/>}
       </div>

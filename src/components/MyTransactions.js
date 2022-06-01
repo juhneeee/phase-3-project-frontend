@@ -8,6 +8,7 @@ function MyTransactions ({transactions, setSelectedStock, updateTransactions}) {
     useEffect(() => {
         updateTransactions()
     }, []);
+    // console.log(transactions)
 
     let transactionsToDisplay = transactions.sort((a, b)=> a[sortBy] > b[sortBy] ? -1 : 1)
     if (sortBy=='label'){
@@ -15,6 +16,7 @@ function MyTransactions ({transactions, setSelectedStock, updateTransactions}) {
     }
 
     return <>
+    <h3>Recent Transactions</h3>
     <table className='table'>
         <tbody>
             <tr>
