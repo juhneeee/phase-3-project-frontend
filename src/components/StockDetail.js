@@ -2,7 +2,8 @@ import React, {useState} from "react";
 
 function StockDetail({selectedStock, loggedInUser, updateTransactions, updateUser}){
     const [input, setInput] = useState(0)
-    const numberOwned = loggedInUser["list_stocks"].find(i=> i.label == selectedStock.label).quantity
+    const isOwn = loggedInUser["list_stocks"].find(i=> i.label == selectedStock.label)
+    const numberOwned = isOwn ? isOwn.quantity : 0
 
     function handleSubmit(e){
         e.preventDefault()
@@ -18,7 +19,7 @@ function StockDetail({selectedStock, loggedInUser, updateTransactions, updateUse
         {loggedInUser && <>
             <h2>Current Price: {selectedStock.price.toFixed(2)}</h2>
             <form onSubmit={handleSubmit}>
-            <p>Hello {loggedInUser.name}. Your current balance is {loggedInUser.balance}. You current own {numberOwned} for {selectedStock.label}.</p>
+            <p>Hello {loggedInUser.name}. Your current balance is {loggedInUser.balance.toFixed(2)}. You current own {numberOwned} for {selectedStock.label}.</p>
             <input type="number" onChange={(e) =>{setInput(e.target.value)}} value={input}></input>
             <button type="submit">Trade!</button>
             </form>

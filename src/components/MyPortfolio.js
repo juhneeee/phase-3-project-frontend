@@ -19,7 +19,7 @@ function MyPorfolio({loggedInUser}){
             return <UserStock key={s.label} stock={s}/>
         })}
     </table>
-        <h3>Balance: {balance} </h3> 
+        <h3>Balance: {balance.toFixed(2)} </h3> 
         <h3>Portfolio: {portfolio_value}</h3>
     </div>
 }

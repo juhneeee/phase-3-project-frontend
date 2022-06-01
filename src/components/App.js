@@ -42,7 +42,8 @@ function App() {
 
   function fakesGamble(){
     fetch(`http://localhost:9292/fakes/gamble`)
-    
+    .then(updateTransactions)
+    .then(updateUser)
   }
 
   return (
@@ -61,6 +62,7 @@ function App() {
       : <LoginForm setLoggedInUser={setLoggedInUser}/>}
 
         <button onClick={updatePrices}>Update Prices</button>
+        <button onClick={fakesGamble}>Gamble</button>
 
         {selectedStock && 
         <StockDetail selectedStock={selectedStock} loggedInUser={loggedInUser} updateTransactions={updateTransactions} updateUser={updateUser}/>}

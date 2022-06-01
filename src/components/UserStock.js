@@ -10,6 +10,7 @@ function UserStock({stock}){
     <td>{current_value.toFixed(2)}</td>
     <td>{amount_invested.toFixed(2)}</td>
     <td>{net_change.toFixed(2)}</td>
+    {/* this is percent change */}
     <td>{net_change<0 ? "-" : "+"}{Math.abs((net_change/amount_invested*100)).toFixed(2)}%</td>
 </tr>
 }
