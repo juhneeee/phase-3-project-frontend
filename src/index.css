@@ -20,36 +20,34 @@ code {
 
 .top-div{
   width: 100%;
+  border-bottom: 2px solid #6d9eeb;
 }
 
 .left-div{
   width: 60%;
   align-content: center;
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
 }
 
 .right-div{
   width: 39%;
-  border: 2px solid blue;
+  margin-top: 3%;
+  /* border: 2px solid blue; */
 }
 
 
 
 .App div {
-  border: 2px solid black;
+  /* border: 2px solid black; */
   padding-bottom: 5%;
 }
 
 div {
-  border: 2px dotted red;
+  /* border: 2px dotted red; */
 }
 
 .table{
   width: 100%;
-  /* margin: 25px 0; */
-  /* font-size: 0.9em; */
-  /* box-shadow: 0 0 20px rgba(255, 255, 255, 0.15); */
-  /* display: inline-block; */
   border: 2px solid black;
   table-layout: fixed;
 }
@@ -66,4 +64,25 @@ div {
 
 .tr-green {
   background-color: #d9ead3;
+}
+
+.fake-button {
+  background-color: #2366a4;
+  display: inline-block;
+  color: #efefef;
+  width: 40%;
+}
+
+.hover:hover {
+  cursor:pointer;
+}
+
+button {
+  background-color: #2366a4;
+  color: #efefef;
+  padding: 1%;
+  min-width: 65px;
+}
+button:hover{
+  cursor:pointer
 }

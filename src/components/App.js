@@ -1,9 +1,7 @@
 import '../App.css';
+import React, {useState, useEffect} from 'react';
 import StockList from './StockList';
 import LoginForm from './LoginForm';
-import React, {useState, useEffect} from 'react';
-// import NavBar from './NavBar';
-// import { Route, Routes, useNavigate } from 'react-router-dom';
 import MyTransactions from './MyTransactions';
 import StockDetail from './StockDetail';
 import MyPorfolio from './MyPortfolio';
@@ -19,7 +17,7 @@ function App() {
 
   useEffect(()=>{
     // const interval = setInterval(()=>{
-    //   setCount(count=> (count+1)%4)
+      // setCount(count=> (count+1)%4)
     // }, 50000);
     // return () => clearInterval(interval)
   },[])
@@ -67,7 +65,7 @@ function App() {
   return (
     <div className="App">
       <div className='top-div'>
-        <h1>LOGO</h1>
+        <h1>FruitMarket</h1>
       </div>
       
       <div className = "left-div">
@@ -84,17 +82,23 @@ function App() {
       {loggedInUser 
       ? <>
           <label>Hello {loggedInUser.name} </label>
-          <button onClick={() => setLoggedInUser(false)}> logout </button> 
+          <button onClick={() => setLoggedInUser(false)}> Log Out </button> 
         </>
       : <LoginForm setLoggedInUser={setLoggedInUser}/>}
 
+      {loggedInUser['account_type']=="Admin" &&
         <div>{count} minutes have elapsed since mounting.
         <button onClick={updatePrices}>Update Prices</button>
         <button onClick={fakesGamble}>Gamble</button>
         </div>
+      }
         
         {selectedStock && 
-        <StockDetail selectedStock={selectedStock} loggedInUser={loggedInUser} updateTransactions={updateTransactions} updateUser={updateUser}/>}
+        <StockDetail 
+          selectedStock={selectedStock} 
+          loggedInUser={loggedInUser} 
+          updateTransactions={updateTransactions} 
+          updateUser={updateUser}/>}
       </div>
     </div>
   );

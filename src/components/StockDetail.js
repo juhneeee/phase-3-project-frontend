@@ -20,9 +20,10 @@ function StockDetail({selectedStock, loggedInUser, updateTransactions, updateUse
         <h3>{selectedStock.description}</h3>
         {loggedInUser && <>
             <form onSubmit={handleSubmit}>
-            <p>Hello {loggedInUser.name}. Your current balance is {loggedInUser.balance.toFixed(2)}. You current own {numberOwned} for {selectedStock.label}.</p>
+            <p>Your current balance is {loggedInUser.balance.toFixed(2)}.</p> 
+            <p>You current own {numberOwned} for {selectedStock.label}.</p>
             <input type="number" onChange={(e) =>{setInput(e.target.value)}} value={input}></input>
-            <button type="submit">Trade!</button>
+            <button type="submit">{input >= 0 ? "Buy" : "Sell"}!</button>
             </form>
             </>
         }

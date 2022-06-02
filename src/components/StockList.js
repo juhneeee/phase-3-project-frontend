@@ -15,7 +15,7 @@ function StockList ({stocks, setSelectedStock, updateStocks}) {
     }
 
     return <div className="div-table">
-        <h1>Stocks</h1>
+        <h1 className="fake-button">Stocks</h1>
     <table className='table'>
         <thead>
             <tr className="transactions">

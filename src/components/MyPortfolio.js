@@ -6,7 +6,9 @@ function MyPorfolio({loggedInUser}){
     const [showTable, setShowTable] = useState(false)
 
     return <div className="div-table">
-        <h1 onClick={()=>setShowTable(!showTable)}>Portfolio</h1>
+        <h1 className="fake-button hover" 
+            onClick={()=>setShowTable(!showTable)}>Portfolio</h1>
+            
         {showTable && 
             <table className='table'>
                 <thead>
@@ -28,8 +30,8 @@ function MyPorfolio({loggedInUser}){
             </table>
         }
         <h4>Balance: {balance.toFixed(2)} </h4> 
-        <h4>Stock Value: {portfolio_value}</h4>
-        <h4>Net Worth: {net_worth.toFixed(2)}</h4>
+        <h4>Stock Value: {portfolio_value || 0}</h4>
+        <h4>Net Worth: {net_worth || balance}</h4>
     </div>
 }
 

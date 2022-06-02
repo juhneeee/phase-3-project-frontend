@@ -16,7 +16,9 @@ function MyTransactions ({transactions, setSelectedStock, updateTransactions}) {
     }
 
     return <div className="div-table">
-    <h2 onClick={()=>setShowTable(!showTable)}>Recent Transactions</h2>
+    <h2 className="fake-button hover" 
+        onClick={()=>setShowTable(!showTable)}>Recent Transactions</h2>
+        
     {showTable &&
         <table className='table'>
             <thead>
