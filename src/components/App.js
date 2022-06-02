@@ -80,10 +80,10 @@ function App() {
 
       <div className="right-div">
       {loggedInUser 
-      ? <>
-          <label>Hello {loggedInUser.name} </label>
+      ? <div className="content-right">
+          <label>Welcome {loggedInUser.name} </label>
           <button onClick={() => setLoggedInUser(false)}> Log Out </button> 
-        </>
+        </div>
       : <LoginForm setLoggedInUser={setLoggedInUser}/>}
 
       {loggedInUser['account_type']=="Admin" &&

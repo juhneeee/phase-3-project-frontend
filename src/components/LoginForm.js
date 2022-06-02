@@ -29,11 +29,11 @@ function LoginForm({setLoggedInUser}){
         if (user){
             alert("That account already exists. Try logging in.")
         } else {
-            const body = {...formData, balance: 1000, "account-type":"Real"}
+            // const body = {...formData, balance: 1000, "account-type":"Real"}
             fetch(`http://localhost:9292/users`,{
                 method: "POST",
                 headers:{"Content-type": "application/json"},
-                body: JSON.stringify(body)
+                body: JSON.stringify(formData)
             })
             .then(r => r.json())
             .then(setLoggedInUser)
@@ -46,9 +46,9 @@ function LoginForm({setLoggedInUser}){
     }
     
 
-    return <div >
+    return <div className="login-form">
         <input type="text" name="name" onChange={handleChange} value={formData.name} placeholder="Name here..."></input>
-        <input type="number" min="0" max="9" name="passcode" 
+        <input type="number" className="passcode" min="0" max="9" name="passcode" 
             onChange={handleChange} value={formData.password} placeholder="Password here..."
             onKeyDown={handleSubmit}></input>
         <button onClick={handleLogin}>Log In</button>

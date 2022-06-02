@@ -12,7 +12,8 @@ function StockDetail({selectedStock, loggedInUser, updateTransactions, updateUse
         .then(()=>updateUser())
     }
 
-    return <>
+    return <div className="detail">
+    <br></br><br></br>
     <h1>{selectedStock.label}</h1>
     
         <h2>{selectedStock.name}</h2>
@@ -28,7 +29,7 @@ function StockDetail({selectedStock, loggedInUser, updateTransactions, updateUse
             </>
         }
         
-    </>
+    </div>
 }
 
 export default StockDetail;

@@ -30,21 +30,14 @@ code {
 }
 
 .right-div{
-  width: 39%;
+  width: 35%;
   margin-top: 3%;
   /* border: 2px solid blue; */
+  display: inline-flex;
+  flex-wrap: wrap;
 }
 
 
-
-.App div {
-  /* border: 2px solid black; */
-  padding-bottom: 5%;
-}
-
-div {
-  /* border: 2px dotted red; */
-}
 
 .table{
   width: 100%;
@@ -85,4 +78,24 @@ button {
 }
 button:hover{
   cursor:pointer
+}
+
+.detail{
+  width: 100%;
+  position: relative;
+  top: -46px;
+  border: 2px solid black;
+}
+
+.content-right{
+  margin-left: auto; 
+}
+
+.login-form{
+  margin-left: auto;
+  padding-bottom: 63px;
+}
+
+.passcode{
+  width: 130px;
 }
