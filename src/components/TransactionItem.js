@@ -16,7 +16,7 @@ function TransactionItem({transaction, setSelectedStock}) {
     <td >{transaction_type}</td>
     <td >{price}</td>
     <td >{quantity}</td>
-    <td >{balance_change}</td>
+    <td >{balance_change.toFixed(2)}</td>
 </tr>
 }
 

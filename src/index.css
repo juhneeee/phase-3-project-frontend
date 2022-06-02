@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #efefef;
 }
 
 code {
@@ -12,16 +13,57 @@ code {
     monospace;
 }
 
+.App {
+  display: flex ;
+  flex-wrap: wrap;
+}
+
+.top-div{
+  width: 100%;
+}
+
 .left-div{
   width: 60%;
   align-content: center;
+  border: 2px solid blue;
 }
 
 .right-div{
-  width: 40%;
+  width: 39%;
+  border: 2px solid blue;
 }
 
-.App {
-  display: flex;
-  direction: row;
+
+
+.App div {
+  border: 2px solid black;
+  padding-bottom: 5%;
+}
+
+div {
+  border: 2px dotted red;
+}
+
+.table{
+  width: 100%;
+  /* margin: 25px 0; */
+  /* font-size: 0.9em; */
+  /* box-shadow: 0 0 20px rgba(255, 255, 255, 0.15); */
+  /* display: inline-block; */
+  border: 2px solid black;
+  table-layout: fixed;
+}
+
+.div-table {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+
+.tr-red {
+  background-color: #f4cccc;
+}
+
+.tr-green {
+  background-color: #d9ead3;
 }

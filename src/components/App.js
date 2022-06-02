@@ -18,15 +18,15 @@ function App() {
   const [count, setCount] = useState(0)
 
   useEffect(()=>{
-    const interval = setInterval(()=>{
-      setCount(count=> (count+1)%4)
-    }, 60000);
-    return () => clearInterval(interval)
+    // const interval = setInterval(()=>{
+    //   setCount(count=> (count+1)%4)
+    // }, 50000);
+    // return () => clearInterval(interval)
   },[])
 
   useEffect(()=>{
-    if(count == 1){
-      fakesGamble()
+    if(count == 0){
+      // fakesGamble()
     } else {
       updatePrices()
     }
@@ -66,16 +66,26 @@ function App() {
 
   return (
     <div className="App">
+      <div className='top-div'>
+        <h1>LOGO</h1>
+      </div>
+      
       <div className = "left-div">
       <StockList stocks={stocks} setSelectedStock={setSelectedStock} updateStocks={updateStocks}/>
-      {loggedInUser && <MyPorfolio loggedInUser={loggedInUser}/>}
-      {loggedInUser && <MyTransactions loggedInUser={loggedInUser} transactions={transactions} updateTransactions={updateTransactions} setSelectedStock={setSelectedStock}/>}
+      {loggedInUser && 
+        <>
+        <MyPorfolio loggedInUser={loggedInUser}/>
+        <MyTransactions loggedInUser={loggedInUser} transactions={transactions} updateTransactions={updateTransactions} setSelectedStock={setSelectedStock}/>
+        </>}
       </div>
       
 
       <div className="right-div">
       {loggedInUser 
-      ? <button onClick={() => setLoggedInUser(false)}> logout </button>
+      ? <>
+          <label>Hello {loggedInUser.name} </label>
+          <button onClick={() => setLoggedInUser(false)}> logout </button> 
+        </>
       : <LoginForm setLoggedInUser={setLoggedInUser}/>}
 
         <div>{count} minutes have elapsed since mounting.
