@@ -1,7 +1,7 @@
 import '../App.css';
 import StockList from './StockList';
 import LoginForm from './LoginForm';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 // import NavBar from './NavBar';
 // import { Route, Routes, useNavigate } from 'react-router-dom';
 import MyTransactions from './MyTransactions';
@@ -14,7 +14,23 @@ function App() {
   const [selectedStock, setSelectedStock] = useState("")
   const [stocks, setStocks] = useState([])
   const [transactions, setTransactions] = useState([])
+  
+  const [count, setCount] = useState(0)
 
+  useEffect(()=>{
+    const interval = setInterval(()=>{
+      setCount(count=> (count+1)%4)
+    }, 60000);
+    return () => clearInterval(interval)
+  },[])
+
+  useEffect(()=>{
+    if(count == 1){
+      fakesGamble()
+    } else {
+      updatePrices()
+    }
+  }, [count])
 
   function updateStocks(){
     fetch("http://localhost:9292/stocks")
@@ -29,9 +45,11 @@ function App() {
   }
 
   function updateUser(){
-    fetch(`http://localhost:9292/users/${loggedInUser.id}`)
-    .then((r) => r.json())
-    .then(setLoggedInUser)
+    if (loggedInUser){
+      fetch(`http://localhost:9292/users/${loggedInUser.id}`)
+      .then((r) => r.json())
+      .then(setLoggedInUser)
+    }
   }
 
   function updatePrices(){
@@ -48,7 +66,6 @@ function App() {
 
   return (
     <div className="App">
-
       <div className = "left-div">
       <StockList stocks={stocks} setSelectedStock={setSelectedStock} updateStocks={updateStocks}/>
       {loggedInUser && <MyPorfolio loggedInUser={loggedInUser}/>}
@@ -58,12 +75,14 @@ function App() {
 
       <div className="right-div">
       {loggedInUser 
-      ? <button onClick={() => setLoggedInUser("")}> logout </button>
+      ? <button onClick={() => setLoggedInUser(false)}> logout </button>
       : <LoginForm setLoggedInUser={setLoggedInUser}/>}
 
+        <div>{count} minutes have elapsed since mounting.
         <button onClick={updatePrices}>Update Prices</button>
         <button onClick={fakesGamble}>Gamble</button>
-
+        </div>
+        
         {selectedStock && 
         <StockDetail selectedStock={selectedStock} loggedInUser={loggedInUser} updateTransactions={updateTransactions} updateUser={updateUser}/>}
       </div>

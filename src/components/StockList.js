@@ -14,13 +14,15 @@ function StockList ({stocks, setSelectedStock, updateStocks}) {
 
     return <>
     <table className='table'>
+        <thead>
             <tr>
                 <th onClick={e => setSortBy('label')}>Symbol</th>
                 <th onClick={e => setSortBy('name')}>Name</th>
-                {/* <th onClick={e => setSortBy('Open')}>Opening Price</th> */}
-                <th onClick={e => setSortBy('price')}>Price</th>
-                {/* <th onClick={e => setSortBy('Change')}>Change</th> */}
+                <th onClick={e => setSortBy('previous')}>Previous</th>
+                <th onClick={e => setSortBy('price')}>Current</th>
+                <th >Change(%)</th>
             </tr>
+        </thead>
 
             {stocksToDisplay.map ((stock, i) =>{
                 return <StockItem key={stock.label} stockData={stock} setSelectedStock={setSelectedStock}/>
