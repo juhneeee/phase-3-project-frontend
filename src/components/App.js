@@ -1,4 +1,5 @@
 import '../App.css';
+import logo from './logo.png';
 import React, {useState, useEffect} from 'react';
 import StockList from './StockList';
 import LoginForm from './LoginForm';
@@ -65,7 +66,7 @@ function App() {
   return (
     <div className="App">
       <div className='top-div'>
-        <h1>FruitMarket</h1>
+        <img className="image" src={logo}></img>
       </div>
       
       <div className = "left-div">

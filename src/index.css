@@ -16,11 +16,17 @@ code {
 .App {
   display: flex ;
   flex-wrap: wrap;
+  
 }
 
 .top-div{
   width: 100%;
   border-bottom: 2px solid #6d9eeb;
+  background: rgb(238,174,202);
+  background: linear-gradient(0deg, rgba(238,174,202,1) 0%, rgba(168,233,148,1) 100%); 
+  padding-top: 15px;
+  padding-bottom: 15px;
+  
 }
 
 .left-div{
@@ -35,6 +41,7 @@ code {
   /* border: 2px solid blue; */
   display: inline-flex;
   flex-wrap: wrap;
+  
 }
 
 
@@ -81,19 +88,25 @@ button:hover{
 }
 
 .detail{
-  width: 100%;
-  position: relative;
-  top: -46px;
+  position: absolute;
+  width: 37%;
   border: 2px solid black;
+  top: 202px;
+  padding-bottom: 3rem
 }
 
 .content-right{
   margin-left: auto; 
+  position: absolute;
+  top: 120px;
+  right: 2.8%
 }
 
 .login-form{
   margin-left: auto;
-  padding-bottom: 63px;
+  position: absolute;
+  top: 120px;
+  right: 2.8%
 }
 
 .passcode{
